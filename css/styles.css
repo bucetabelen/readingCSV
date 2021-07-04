@@ -1,0 +1,243 @@
+html, body{
+    height: 100%;
+    width: 100%;
+   /* background-color: black;*/
+}
+
+body{
+
+    background: black;
+    /*linear-gradient(#e66465, #9198e5);*/
+
+    
+}
+
+.wrapper{
+
+    
+    /*background-color: linear-gradient(#e66465, #9198e5);*/
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100% 100%;
+    grid-template-areas: 
+   
+    "menu .";
+
+}
+
+.myForm--details{
+    grid-area: menu;
+    background-color:#fff;
+
+    /*Style sacado de la página*/
+    border-radius: 10px;
+    box-shadow: 0 0 12px 0 rgb(0 0 0 / 10%), 0 10px 30px 0 rgb(0 0 0 / 20%);
+    height: 25.625em;
+    left: 5em;
+    margin: -12.8125em 0 0;
+    position: absolute;
+    top: 50%;
+    transition: transform .5s cubic-bezier(.77,0,.175,1);
+    width: 17.5em;
+    z-index: 30;
+
+}
+
+p{
+    margin-top: 0px;
+    padding-left: -2px;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+#file-upload-filename{
+
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.button-submit{
+
+    width: 51%;
+    background-color: #bebebed5; 
+    color: rgb(255, 255, 255);
+    border-style: none;
+    margin-left: 26%;
+    margin-right: 30%;
+    margin-bottom: 0;
+    margin-top: 218px;
+    border-radius: 17px;
+    height: 35px;
+    cursor: pointer;
+    transition: transform .5s cubic-bezier(.77,0,.175,1);
+    font-weight: bold;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
+ 
+}
+.button-submit:hover{
+    background-color:#67b8db;
+}
+
+.hidden{
+    
+    visibility: hidden;
+   /* margin-top:20vh;*/
+    margin-bottom: 114px;
+    margin-left: 50%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    
+}
+
+h1{
+
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 3em;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, 0.808);
+    /*border-bottom: 2px solid black;
+    
+
+    color: white;
+    margin-top: 10%;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 20px;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    */
+
+}
+
+label{
+    margin-left: 10%;
+    cursor: pointer;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color : #17181a;
+    line-height: 1.2;
+    text-align: center;
+}
+/*input{
+    margin-left:  20%;
+    
+}*/
+i{
+    margin-top: 20%;
+    color: #409fff;
+    
+}
+.fa fa-plus-circle{
+    font-size: 45px;
+}
+
+.button{
+    
+    /*background-color: red;*/
+    display: block;
+    margin-top: 5%;
+    /*height: 150px;*/
+    
+
+    background-color: transparent;
+    /*color: #FFF;*/
+    color: rgba(0, 0, 0, 0.787);
+    border: 2px solid rgb(16, 22, 2);
+   /* border: 2px solid rgb(216, 2, 134);*/
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #D80286;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+    outline: none;
+    
+}
+.button:hover {
+    /*box-shadow: inset 0 0 0 50px rgb(251, 255, 0);*/
+    box-shadow: inset 0 0 0 50px #D80286;
+  }
+
+#totalCountAns{
+    display: none;
+}
+
+#table{
+
+    
+    overflow-y: auto;
+    
+    border-collapse: collapse;
+    font-family: "Lucida Console", Monaco, monospace;
+
+}
+
+
+td, th{
+    border: 1px solid black;
+}
+
+#team{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    
+    display: none;
+}
+
+#tablePeople{
+
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    
+    display: none;
+}
+
+
+#namesList{
+    display: none;
+    /*background-color: thistle;*/
+    list-style-type: auto;
+    list-style-position: inside;
+
+    text-transform: cursive;
+    
+
+}
+
+li{
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 14px; 
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-left: 36%;
+
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
