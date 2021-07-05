@@ -26,13 +26,13 @@ input.addEventListener( 'change', showFileName );
 function showFileName( event ) {
 
     // the change event gives us the input it occurred in 
-    var input = event.srcElement;
+    const input = event.srcElement;
     
     // the input has an array of files in the `files` property, each one has a name that you can use. We're just using the name here.
-    var fileName = input.files[0].name;
+    const fileName = input.files[0].name;
     
-    // use fileName however fits your app best, i.e. add it into a div
-    infoArea.textContent = 'File name: ' + fileName;
+    // use fileName 
+    infoArea.textContent = 'Seleccionado: ' + fileName;
 }
 
 function csvToArray(str, delimiter = ";") {
@@ -59,7 +59,7 @@ myForm.addEventListener("submit", function (e) {
     reader.onload = function (e) {
     const text = e.target.result;
     
-    console.log(text)
+    
     data = csvToArray(text);
 
     //document.write(JSON.stringify(data));
@@ -72,17 +72,16 @@ myForm.addEventListener("submit", function (e) {
     
 });
 
-//Toggle btn to show answer and question
+//Toggle btn to show answer and question.
 function toggleBtn(id, originalText, message, answer){
     if (document.getElementById(id).innerHTML == originalText) {
         document.getElementById(id).innerHTML = message + answer
     }
     else {document.getElementById(id).innerHTML = originalText}
 }
-
+//Displays the answer of the button or returns to it original text. 
 function change(id1, id2, id_condition, originalText, message){
 
-    console.log('Pruebo condicion:', document.getElementById(id_condition).style.display)
     if(document.getElementById(id1).innerHTML == originalText && document.getElementById(id_condition).style.display == 'none'){
         document.getElementById(id1).innerHTML = message
         document.getElementById(id2).style.display = 'block'
@@ -93,13 +92,14 @@ function change(id1, id2, id_condition, originalText, message){
 
 }
 
+//Returns the top five names of an specific team. 
 function listOfCommonNames(){
 
     const teamFiltered =  data.filter(e => e.team == TEAM_FILTER_NAMES)
-    //console.log(river.length)
+  
     const tmp = {}
     let top = []
-    //listOfCommonNames()
+   
     
     teamFiltered.forEach(function(item) {
         tmp[item.name] = tmp[item.name] ? tmp[item.name]+1 :  1;
@@ -112,8 +112,6 @@ function listOfCommonNames(){
 
     let list = document.getElementById("namesList")
 
-    //document.getElementById('namesList').appendChild(ul);
-
     topFive.forEach((item)=>{
         let li = document.createElement("li");
         li.innerText = item;
@@ -124,6 +122,7 @@ function listOfCommonNames(){
 
 }
 
+ 
 commonNames = function(){
 
 
@@ -137,6 +136,7 @@ commonNames = function(){
     
 }
 
+//Returns an ordered array of values with matching conditions.
 marriedPeopleOrdered = function(){
     let i = 0
     let married = data.filter(function(e) {
@@ -145,8 +145,9 @@ marriedPeopleOrdered = function(){
             return e
         }
     } ) 
-    const orderByAscending = married.sort(function(a,b){return a.age - b.age})
-    return orderByAscending
+    const ascendingOrder = married.sort(function(a,b){return a.age - b.age})
+
+    return ascendingOrder
 
 }
 
@@ -164,6 +165,7 @@ marriedPeople = function(){
     }
 }
 
+//total number of people in file.
 totalCount = function(){
 
     let data_unique = new Set(data);
@@ -174,15 +176,10 @@ totalCount = function(){
 
     
 }
+
+//Calculate mean age of a particular team.
 meanAge = function(){
 
-    //const tablePeople =  document.getElementById("tablePeople")
-
-    // Filtrar las rows segun criterio pedido
-    // Hacer calculo auxiliar
-    // Con el resultado para cada uno:
-    //    Crear row (tr) en la tablePeople #filter usando appendChild
-    
     let count = 0
     let sum = 0
     const team = data.filter(e => e.team == TEAM_FILTER_AGE)
@@ -194,9 +191,7 @@ meanAge = function(){
         sum = sum + element.age
         
     });
-    console.log('vengo aca para calcular el promedio')
-    console.log(count)
-    console.log(sum)
+
     const promedio = parseInt(sum / count) 
 
     toggleBtn('meanAge', ORIGINALTEXT_2, MESSAGE_2, promedio)
@@ -204,6 +199,7 @@ meanAge = function(){
 
     
 }
+//Create Table to show answer of button 3. 
 createTable = function(headers, result) {
     document.getElementById("tablePeople").style.display = 'block'
     const t = document.getElementById("tablePeople")
@@ -241,6 +237,8 @@ createTable = function(headers, result) {
         t.appendChild(newRow)
     });
 }
+
+//Create Tabla to show answer of button 5.
 createTeamTable = function(headers, result) {
     const t = document.getElementById("team")
     const r = document.createElement("tr")
@@ -288,8 +286,9 @@ createTeamTable = function(headers, result) {
     
 }
 
+//Calculte the required data to fill the table to answer the question of the last button. 
 buildData = function(){
-    console.log('veo el elemnto', data[data.length-1].name === '')
+    
     let parcial = {}
     data.forEach(element => {
         if (parcial[element.team] === undefined) {
@@ -325,7 +324,7 @@ buildData = function(){
 showTeamInformation = function() {
     
     document.getElementById('tablePeople').style.display = 'none'
-    console.log(document.getElementById('team').innerHTML.trim() == '')
+
     if(document.getElementById('team').innerHTML.trim() == ''){
         createTeamTable(["Equipo", " PromedioEdad", " MenorEdad", " MayorEdad"],buildData())
         change('showTeamInformation','team','tablePeople',ORIGINALTEXT_5,MESSAGE_5)
