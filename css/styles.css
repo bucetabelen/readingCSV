@@ -7,7 +7,8 @@ html, body{
 body{
 
     background: black;
-    /*linear-gradient(#e66465, #9198e5);*/
+    
+    /*background: linear-gradient(#e66465, #9198e5);*/
 
     
 }
@@ -112,10 +113,7 @@ label{
     line-height: 1.2;
     text-align: center;
 }
-/*input{
-    margin-left:  20%;
-    
-}*/
+
 i{
     margin-top: 20%;
     color: #409fff;
@@ -127,7 +125,6 @@ i{
 
 .button{
     
-    /*background-color: red;*/
     display: block;
     margin-top: 5%;
     /*height: 150px;*/
