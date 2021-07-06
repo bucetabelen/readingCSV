@@ -51,24 +51,34 @@ function csvToArray(str, delimiter = ";") {
 
 myForm.addEventListener("submit", function (e) {
     
-    e.preventDefault();
-    
-    const input = csvFile.files[0];
-    const reader = new FileReader();
-    reader.readAsText(input, 'ISO-8859-1')
-    reader.onload = function (e) {
-    const text = e.target.result;
-    
-    
-    data = csvToArray(text);
+    if (csvFile.value == "") {
+        e.preventDefault();
+        alert("Por favor, seleccioná el archivo socios.csv");
+    }else{
+        e.preventDefault();
+        
+        const input = csvFile.files[0];
+        const reader = new FileReader();
+        reader.readAsText(input, 'ISO-8859-1')
+        reader.onload = function (e) {
+        const text = e.target.result;
+        
+        
+        data = csvToArray(text);
 
-    //document.write(JSON.stringify(data));
-    myForm.hidden=true;
-    const f = document.getElementById('filter').style.visibility = 'visible'
-    document.body.style.backgroundColor = "yellow"
-   
+        //document.write(JSON.stringify(data));
+        myForm.hidden=true;
+        const f = document.getElementById('filter').style.visibility = 'visible'
+        document.body.style.backgroundColor = "yellow"
+    
 
     };
+    
+    }   
+    
+
+   // e.preventDefault();
+    
     
 });
 
