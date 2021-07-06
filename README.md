@@ -6,7 +6,7 @@
 
 #Si la respuesta del tercero está habilitada, la del quinto estará bloqueada y viceversa.
 
-#Esta restricción existe sólo entre éstos dos botones, en todos los demás casos/combinaciones se pueden visualizar en simultáneo.
+#Esta restricción existe sólo entre estos dos botones, en todos los demás casos/combinaciones se pueden visualizar en simultáneo.
 
 
 #Page site
