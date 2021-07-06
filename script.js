@@ -80,13 +80,15 @@ function toggleBtn(id, originalText, message, answer){
     else {document.getElementById(id).innerHTML = originalText}
 }
 //Displays the answer of the button or returns to it original text. 
-function change(id1, id2, id_condition, originalText, message){
-
+function change(id1, id2, id_condition,originalText, message){
+    
     if(document.getElementById(id1).innerHTML == originalText && document.getElementById(id_condition).style.display == 'none'){
         document.getElementById(id1).innerHTML = message
         document.getElementById(id2).style.display = 'block'
     }else{
+        console.log('que entra')
         document.getElementById(id1).innerHTML = originalText
+       
         document.getElementById(id2).style.display = 'none'
     }
 
@@ -154,6 +156,7 @@ marriedPeopleOrdered = function(){
 marriedPeople = function(){
 
     document.getElementById('team').style.display = 'none'
+    document.getElementById('showTeamInformation').innerHTML = ORIGINALTEXT_5
     
     if(document.getElementById('tablePeople').innerHTML == ''){
         
@@ -324,7 +327,8 @@ buildData = function(){
 showTeamInformation = function() {
     
     document.getElementById('tablePeople').style.display = 'none'
-
+    document.getElementById('marriedPeople').innerHTML = ORIGINALTEXT_3
+    
     if(document.getElementById('team').innerHTML.trim() == ''){
         createTeamTable(["Equipo", " PromedioEdad", " MenorEdad", " MayorEdad"],buildData())
         change('showTeamInformation','team','tablePeople',ORIGINALTEXT_5,MESSAGE_5)
