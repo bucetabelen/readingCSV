@@ -72,7 +72,7 @@ myForm.addEventListener("submit", function (e) {
     
 });
 
-//Toggle btn to show answer and question.
+//Toggle btn to show answer or question.
 function toggleBtn(id, originalText, message, answer){
     if (document.getElementById(id).innerHTML == originalText) {
         document.getElementById(id).innerHTML = message + answer
@@ -86,7 +86,7 @@ function change(id1, id2, id_condition,originalText, message){
         document.getElementById(id1).innerHTML = message
         document.getElementById(id2).style.display = 'block'
     }else{
-        console.log('que entra')
+        
         document.getElementById(id1).innerHTML = originalText
        
         document.getElementById(id2).style.display = 'none'
